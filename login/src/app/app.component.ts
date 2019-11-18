@@ -27,7 +27,11 @@ export class AppComponent {
     this.pages = [
       // indica os caminhos a seguiir nos items do menu
       { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tasks' },
-      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' }
+      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },
+      { url: '/tasks/create', direction: 'back', icon: 'checkmark', text: 'Eventos' },
+      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Novo Evento' },
+      { url: '/tasks/create', direction: 'back', icon: 'checkmark', text: 'Banners' },
+      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Novo Banner' }
     ];
 
     this.authService.authState$.subscribe(user => (this.user = user));
