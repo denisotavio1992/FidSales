@@ -26,7 +26,7 @@ export class EventosListPage implements OnInit {
     this.eventos$.pipe(take(1)).subscribe(eventos => loading.dismiss());
   }
   onUpdate(evento: Evento): void {
-    this.navCtrl.navigateForward(['eventos', 'edit', evento.id]);
+    this.navCtrl.navigateForward(`/tasks/eventos/edit/${evento.id}`);
   }
 
   async onDelete(evento: Evento): Promise<void> {

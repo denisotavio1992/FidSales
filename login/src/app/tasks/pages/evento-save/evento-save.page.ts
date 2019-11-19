@@ -13,7 +13,6 @@ import { EventosService } from '../../services/eventos.service';
   styleUrls: ['./evento-save.page.scss']
 })
 export class EventoSavePage implements OnInit {
-
   eventoForm: FormGroup;
   pageTitle = '...';
   eventoId: string = undefined;
@@ -60,12 +59,12 @@ export class EventoSavePage implements OnInit {
       message: 'Saving...'
     });
     try {
-      const task = !this.eventoId
+      const evento = !this.eventoId
         ? await this.eventosService.create(this.eventoForm.value)
         : await this.eventosService.update({
-          id: this.eventoId,
-          ...this.eventoForm.value
-        });
+            id: this.eventoId,
+            ...this.eventoForm.value
+          });
       this.navCtrl.navigateBack('/tasks/eventos');
     } catch (error) {
       console.log('Error saving Task: ', error);

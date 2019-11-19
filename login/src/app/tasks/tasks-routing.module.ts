@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: './pages/evento-save/evento-save.module#EventoSavePageModule'
       },
       {
+        path: 'eventos/edit/:id', // aqui nao esta funcionando a alteração de nome da pagina para edição
+        loadChildren: './pages/evento-save/evento-save.module#EventoSavePageModule'
+      },
+      {
         path: 'eventos',
         loadChildren: './pages/eventos-list/eventos-list.module#EventosListPageModule'
       },
