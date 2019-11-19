@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Aqui esta o menu dinamico que pode ser replicado em varias paginas da aplicação -->
+    <app-menu-toggle
+      slot="start"
+      menu="main-menu"
+    ></app-menu-toggle>
+    <ion-title>Banners Lista</ion-title>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="banners$ | async as banners">
+    <ng-container *ngIf="banners.length > 0; else noBanners">
+      <app-banner-item
+        *ngFor="let banner of banners"
+        [banner]="banner"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (done)="onDone($event)"
+      >
+      </app-banner-item>
+    </ng-container>
+    <ng-template #noBanners>
+      <ion-item lines="none">Sem banners para este evento...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button
+      routerLink="/tasks/criar-banner"
+      routerDirection="forward"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

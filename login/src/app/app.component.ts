@@ -30,8 +30,8 @@ export class AppComponent {
       { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },
       { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
       { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
-      { url: '/tasks/create', direction: 'back', icon: 'checkmark', text: 'Banners' },
-      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Novo Banner' }
+      { url: '/tasks/banners', direction: 'back', icon: 'checkmark', text: 'Banners' },
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'add', text: 'Novo Banner' }
     ];
 
     this.authService.authState$.subscribe(user => (this.user = user));

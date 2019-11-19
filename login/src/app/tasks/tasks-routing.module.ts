@@ -28,6 +28,18 @@ const routes: Routes = [
         loadChildren: './pages/eventos-list/eventos-list.module#EventosListPageModule'
       },
       {
+        path: 'banners',
+        loadChildren: './pages/banner-list/banner-list.module#BannerListPageModule'
+      },
+      {
+        path: 'criar-banner',
+        loadChildren: './pages/banner-save/banner-save.module#BannerSavePageModule'
+      },
+      {
+        path: 'banners/edit/:id',
+        loadChildren: './pages/banner-save/banner-save.module#BannerSavePageModule'
+      },
+      {
         path: '',
         loadChildren: './pages/tasks-list/tasks-list.module#TasksListPageModule'
       }
