@@ -29,7 +29,7 @@ export class AppComponent {
       { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tasks' },
       { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },
       { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
-      { url: '/tasks/evento-save', direction: 'forward', icon: 'add', text: 'Novo Evento' },
+      { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
       { url: '/tasks/create', direction: 'back', icon: 'checkmark', text: 'Banners' },
       { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'Novo Banner' }
     ];

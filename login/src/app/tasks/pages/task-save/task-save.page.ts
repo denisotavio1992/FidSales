@@ -27,7 +27,7 @@ export class TaskSavePage implements OnInit {
 
   ngOnInit(): void {
     this.createForm();
-    this.init(); //dentro do metodo precisamos do formulario atribuido
+    this.init(); // dentro do metodo precisamos do formulario atribuido
   }
 
   init(): void {

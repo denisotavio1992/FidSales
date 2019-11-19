@@ -16,7 +16,7 @@ const routes: Routes = [
         loadChildren: './pages/task-save/task-save.module#TaskSavePageModule'
       },
       {
-        path: 'evento-save',
+        path: 'criar-evento',
         loadChildren: './pages/evento-save/evento-save.module#EventoSavePageModule'
       },
       {
