@@ -26,8 +26,8 @@ export class AppComponent {
   initializeApp() {
     this.pages = [
       // indica os caminhos a seguiir nos items do menu eventos-list
-      { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tasks' },
-      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },
+      /* { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tasks' },
+      { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },*/
       { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
       { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
       { url: '/tasks/banners', direction: 'back', icon: 'checkmark', text: 'Banners' },

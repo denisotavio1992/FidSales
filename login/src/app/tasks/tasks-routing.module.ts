@@ -38,10 +38,14 @@ const routes: Routes = [
       {
         path: 'banners/edit/:id',
         loadChildren: './pages/banner-save/banner-save.module#BannerSavePageModule'
-      },
+      } /*
       {
         path: '',
         loadChildren: './pages/tasks-list/tasks-list.module#TasksListPageModule'
+      },*/,
+      {
+        path: '',
+        loadChildren: './pages/eventos-list/eventos-list.module#EventosListPageModule'
       }
     ]
   }
