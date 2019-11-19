@@ -40,15 +40,49 @@ export class BannerSavePage implements OnInit {
     this.bannersService
       .get(bannerId)
       .pipe(take(1))
-      .subscribe(({ title, done }) => {
-        this.bannerForm.get('title').setValue(title);
-        this.bannerForm.get('done').setValue(done);
-      });
+      .subscribe(
+        ({
+          title,
+          ra,
+          done,
+          aluno,
+          nota1,
+          nota2,
+          nota3,
+          nota4,
+          nota5,
+          notaFinal,
+          proOrientador
+        }) => {
+          this.bannerForm.get('title').setValue(title);
+          this.bannerForm.get('done').setValue(done);
+          // testando
+          this.bannerForm.get('ra').setValue(ra);
+          this.bannerForm.get('aluno').setValue(aluno);
+          this.bannerForm.get('proOrientador').setValue(proOrientador);
+          this.bannerForm.get('nota1').setValue(nota1);
+          this.bannerForm.get('nota2').setValue(nota2);
+          this.bannerForm.get('nota3').setValue(nota3);
+          this.bannerForm.get('nota4').setValue(nota4);
+          this.bannerForm.get('nota5').setValue(nota5);
+          this.bannerForm.get('notaFinal').setValue(notaFinal);
+        }
+      );
   }
 
   private createForm(): void {
     this.bannerForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
+      ra: ['', [Validators.required, Validators.minLength(3)]],
+      aluno: ['', [Validators.required, Validators.minLength(3)]],
+      proOrientador: ['', [Validators.required, Validators.minLength(3)]],
+      nota1: ['', [Validators.required]],
+      nota2: ['', [Validators.required]],
+      nota3: ['', [Validators.required]],
+      nota4: ['', [Validators.required]],
+      nota5: ['', [Validators.required]],
+      notaFinal: ['', [Validators.required]],
+
       done: [false]
     });
   }
