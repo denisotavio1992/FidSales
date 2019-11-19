@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Aqui esta o menu dinamico que pode ser replicado em varias paginas da aplicação -->
+    <app-menu-toggle
+      slot="start"
+      menu="main-menu"
+    ></app-menu-toggle>
+    <ion-title>Eventos</ion-title>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="eventos$ | async as eventos">
+    <ng-container *ngIf="eventos.length > 0; else noEvento">
+      <app-evento-item
+        *ngFor="let evento of eventos"
+        [evento]="evento"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (done)="onDone($event)"
+      ></app-evento-item>
+    </ng-container>
+    <ng-template #noEvento>
+      <ion-item lines="none">Ainda sem eventos cadastrados...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button
+      routerLink="/tasks/create-evento"
+      routerDirection="forward"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

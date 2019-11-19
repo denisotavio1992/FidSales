@@ -5,20 +5,19 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { EventoListPage } from './evento-list.page';
+import { EventosListPage } from './eventos-list.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ComponentsModule } from '../../components/components.module';
-import { TasksListPage } from '../tasks-list/tasks-list.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: EventoListPage
+    component: EventosListPage
   }
 ];
 
 @NgModule({
   imports: [SharedModule, ComponentsModule, RouterModule.forChild(routes)],
-  declarations: [EventoListPage]
+  declarations: [EventosListPage]
 })
-export class EventoListPageModule {}
+export class EventosListPageModule {}

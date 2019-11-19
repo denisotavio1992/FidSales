@@ -2,11 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
-
 import { OverlayService } from 'src/app/core/services/overlay.service';
-import { Task } from '../../models/task.model';
 import { TasksService } from '../../services/tasks.service';
 
+import { Task } from '../../models/task.model';
 @Component({
   selector: 'app-tasks-list',
   templateUrl: './tasks-list.page.html',

@@ -11,14 +11,17 @@ const routes: Routes = [
         path: 'create',
         loadChildren: './pages/task-save/task-save.module#TaskSavePageModule'
       },
-      { path: 'edit/:id', loadChildren: './pages/task-save/task-save.module#TaskSavePageModule' },
       {
-        path: 'evento-list',
-        loadChildren: './pages/evento-list/evento-list.module#EventoListPageModule'
+        path: 'edit/:id',
+        loadChildren: './pages/task-save/task-save.module#TaskSavePageModule'
       },
       {
         path: 'evento-save',
         loadChildren: './pages/evento-save/evento-save.module#EventoSavePageModule'
+      },
+      {
+        path: 'eventos',
+        loadChildren: './pages/eventos-list/eventos-list.module#EventosListPageModule'
       },
       {
         path: '',
