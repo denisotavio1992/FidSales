@@ -37,7 +37,7 @@ export class EventoSavePage implements OnInit {
       return;
     }
     this.eventoId = eventoId;
-    this.pageTitle = 'Editar Evento';
+    this.pageTitle = 'Editar Evento'; // aqui nao esta sendo exibido
     this.eventosService
       .get(eventoId)
       .pipe(take(1))

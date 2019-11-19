@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/tasks/eventos"></ion-back-button>
     </ion-buttons>
-    <ion-title>Criar Evento</ion-title>
+    <ion-title>{{ pageTitle }}</ion-title>
     <app-logout-button
       slot="end"
       menu="main-menu"
@@ -13,10 +13,19 @@
 
 
 
+
+
 <ion-content padding>
- <form [formGroup]="eventoForm" (submit)="onSubmit()">
+  <form
+    [formGroup]="eventoForm"
+    (submit)="onSubmit()"
+  >
     <ion-item>
-      <ion-icon name="paper" slot="start" color="primary"></ion-icon>
+      <ion-icon
+        name="paper"
+        slot="start"
+        color="primary"
+      ></ion-icon>
       <ion-input
         type="text"
         placeholder="Title"
@@ -25,9 +34,19 @@
         formControlName="title"
       >
       </ion-input>
-      <ion-toggle *ngIf="eventoId" slot="end" color="primary" formControlName="done"> </ion-toggle>
+      <ion-toggle
+        *ngIf="eventoId"
+        slot="end"
+        color="primary"
+        formControlName="done"
+      >
+      </ion-toggle>
     </ion-item>
-    <ion-button expand="full" type="submit" [disabled]="eventoForm.invalid">
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]="eventoForm.invalid"
+    >
       Save
     </ion-button>
   </form>
