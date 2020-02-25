@@ -53,9 +53,9 @@ export class ClienteSavePage implements OnInit {
     this.clienteForm = this.fb.group({
       nome: ['', [Validators.required, Validators.minLength(3)]],
       celular: ['', [Validators.required, Validators.minLength(9)]],
-      endereco: ['', [ Validators.minLength(5)]],
+      endereco: ['', [Validators.minLength(5)]],
       sexo: ['', [Validators.required, Validators.minLength(1)]],
-      idade: ['', [ Validators.minLength(2)]],
+      idade: ['', [Validators.minLength(2)]],
       done: [false]
     });
   }
@@ -73,7 +73,7 @@ export class ClienteSavePage implements OnInit {
           });
       this.navCtrl.navigateBack('/tasks/clientes');
     } catch (error) {
-      console.log('Error saving Clientes: ', error);
+      console.log('Erro ao salvar o clientes: ', error);
       await this.overlayService.toast({
         message: error.message
       });
