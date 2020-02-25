@@ -31,7 +31,15 @@ export class AppComponent {
       { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
       { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
       { url: '/tasks/banners', direction: 'back', icon: 'checkmark', text: 'Banners' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'add', text: 'Novo Banner' }
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'add', text: 'Novo Banner' },
+      // tg
+      { url: '/tasks/eventos', direction: 'back', icon: 'checkbox', text: 'Vender' },
+      { url: '/tasks/criar-evento', direction: 'forward', icon: 'grid', text: 'Produtos' },
+      { url: '/tasks/clientes', direction: 'back', icon: 'person', text: 'Clientes' },
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'logo-usd', text: 'Histórico' },
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'stats', text: 'Estatísticas' },
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'cog', text: 'Configurações' },
+      { url: '/tasks/criar-banner', direction: 'forward', icon: 'happy', text: 'Ajuda' }
     ];
 
     this.authService.authState$.subscribe(user => (this.user = user));

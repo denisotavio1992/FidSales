@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyCJMme8HbgAx5Re1_maEzoPv-H6DgkLBEs',
-    authDomain: 'estagioqrcode.firebaseapp.com',
-    databaseURL: 'https://estagioqrcode.firebaseio.com',
-    projectId: 'estagioqrcode',
-    storageBucket: 'estagioqrcode.appspot.com',
-    messagingSenderId: '839897831850',
-    appId: '1:839897831850:web:2000ee23af89973a2533d3',
-    measurementId: 'G-FQJHT4ZFYZ'
+    apiKey: 'AIzaSyDxKG7IKnynVd1g0sIa1qdp9JceMIYhECY',
+    authDomain: 'fidsales-361db.firebaseapp.com',
+    databaseURL: 'https://fidsales-361db.firebaseio.com',
+    projectId: 'fidsales-361db',
+    storageBucket: 'fidsales-361db.appspot.com',
+    messagingSenderId: '845412161005',
+    appId: '1:845412161005:web:1895c0219c3bf5bea283e4'
   }
 };
 

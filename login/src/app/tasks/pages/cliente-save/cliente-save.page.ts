@@ -1,53 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ClientesService } from '../../services/clientes.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
-import { take } from 'rxjs/operators';
 import { OverlayService } from 'src/app/core/services/overlay.service';
-import { TasksService } from '../../services/tasks.service';
+import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-task-save',
-  templateUrl: './task-save.page.html',
-  styleUrls: ['./task-save.page.scss']
+  selector: 'app-cliente-save',
+  templateUrl: './cliente-save.page.html',
+  styleUrls: ['./cliente-save.page.scss']
 })
-export class TaskSavePage implements OnInit {
-  taskForm: FormGroup;
+export class ClienteSavePage implements OnInit {
+  clienteForm: FormGroup;
   pageTitle = '...';
-  taskId: string = undefined;
+  clienteId: string = undefined;
 
   constructor(
     private fb: FormBuilder,
     private navCtrl: NavController,
     private overlayService: OverlayService,
     private route: ActivatedRoute,
-    private tasksService: TasksService
-  ) { }
+    private clienteService: ClientesService
+  ) {}
 
   ngOnInit(): void {
     this.createForm();
     this.init(); // dentro do metodo precisamos do formulario atribuido
   }
-
   init(): void {
-    const taskId = this.route.snapshot.paramMap.get('id');
-    if (!taskId) {
+    const clienteId = this.route.snapshot.paramMap.get('id');
+    if (!clienteId) {
       this.pageTitle = 'Create Task'; // se nao houver e para criar
       return;
     }
-    this.taskId = taskId;
+    this.clienteId = clienteId;
     this.pageTitle = 'Edit Task';
-    this.tasksService
-      .get(taskId)
+    this.clienteService
+      .get(clienteId)
       .pipe(take(1))
-      .subscribe(({ title, done }) => {
-        this.taskForm.get('title').setValue(title);
-        this.taskForm.get('done').setValue(done);
+      .subscribe(({ nome, done }) => {
+        this.clienteForm.get('nome').setValue(nome);
+        this.clienteForm.get('done').setValue(done);
       });
   }
 
   private createForm(): void {
-    this.taskForm = this.fb.group({
+    this.clienteForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       done: [false]
     });
@@ -58,12 +57,12 @@ export class TaskSavePage implements OnInit {
       message: 'Saving...'
     });
     try {
-      const task = !this.taskId
-        ? await this.tasksService.create(this.taskForm.value)
-        : await this.tasksService.update({
-          id: this.taskId,
-          ...this.taskForm.value
-        });
+      const task = !this.clienteId
+        ? await this.clienteService.create(this.clienteForm.value)
+        : await this.clienteService.update({
+            id: this.clienteId,
+            ...this.clienteForm.value
+          });
       this.navCtrl.navigateBack('/tasks');
     } catch (error) {
       console.log('Error saving Task: ', error);

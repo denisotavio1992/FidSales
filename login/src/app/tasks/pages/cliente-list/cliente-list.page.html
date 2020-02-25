@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- Aqui esta o menu dinamico que pode ser replicado em varias paginas da aplicação -->
+    <app-menu-toggle
+      slot="start"
+      menu="main-menu"
+    ></app-menu-toggle>
+    <ion-title>Clientes Lista</ion-title>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list *ngIf="clientes$ | async as clientes">
+    <ng-container *ngIf="clientes.length > 0; else noClientes">
+      <app-cliente-item
+        *ngFor="let cliente of clientes"
+        [cliente]="cliente"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (done)="onDone($event)"
+      >
+      </app-cliente-item>
+    </ng-container>
+    <ng-template #noClientes>
+      <ion-item lines="none">Sem clientes...</ion-item>
+    </ng-template>
+  </ion-list>
+
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button
+      routerLink="/tasks/criar-cliente"
+      routerDirection="forward"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

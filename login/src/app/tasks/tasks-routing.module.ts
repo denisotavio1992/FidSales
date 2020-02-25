@@ -46,6 +46,18 @@ const routes: Routes = [
       {
         path: '',
         loadChildren: './pages/eventos-list/eventos-list.module#EventosListPageModule'
+      },
+      {
+        path: 'clientes',
+        loadChildren: './pages/cliente-list/cliente-list.module#ClienteListPageModule'
+      },
+      {
+        path: 'clientes/edit/:id',
+        loadChildren: './pages/cliente-save/cliente-save.module#ClienteSavePageModule'
+      },
+      {
+        path: 'criar-cliente',
+        loadChildren: './pages/cliente-save/cliente-save.module#ClienteSavePageModule'
       }
     ]
   }
