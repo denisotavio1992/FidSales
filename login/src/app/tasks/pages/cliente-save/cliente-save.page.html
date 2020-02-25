@@ -1,9 +1,77 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>cliente-sdfgsdgfsdgsave</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tasks/clientes"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content padding>
+  <form [formGroup]="clienteForm" (submit)="onSubmit()">
+    <ion-item>
+      <ion-icon name="person" slot="start" color="primary"></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Nome"
+        autofocus="true"
+        inputmode="text"
+        formControlName="nome"
+      >
+      </ion-input>
+    </ion-item>
+    <!--Celular-->
+    <ion-item>
+      <ion-icon name="logo-whatsapp" slot="start" color="primary"></ion-icon>
+      <ion-input
+        mask="(99) 9 9999-9999"
+        type="text"
+        placeholder="Celular"
+        autofocus="true"
+        inputmode="text"
+        formControlName="celular"
+      >
+      </ion-input>
+    </ion-item>
+    <!--endereco-->
+    <ion-item>
+      <ion-icon name="home" slot="start" color="primary"></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Endereço"
+        autofocus="true"
+        inputmode="text"
+        formControlName="endereco"
+      >
+      </ion-input>
+    </ion-item>
+    <!--Idade-->
+    <ion-item>
+      <ion-icon name="walk" slot="start" color="primary"></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Idade"
+        autofocus="true"
+        inputmode="text"
+        formControlName="idade"
+      >
+      </ion-input>
+    </ion-item>
+    <!--sexo-->
+    <ion-item>
+      <ion-icon name="female" slot="start" color="primary"></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Sexo"
+        autofocus="true"
+        inputmode="text"
+        formControlName="sexo"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-button expand="full" type="submit" [disabled]="clienteForm.invalid">
+      Save
+    </ion-button>
+  </form>
 </ion-content>

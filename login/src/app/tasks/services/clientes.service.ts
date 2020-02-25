@@ -15,9 +15,7 @@ export class ClientesService extends Firestore<Cliente> {
   private init(): void {
     this.authService.authState$.subscribe(user => {
       if (user) {
-        this.setCollection(`/users/${user.uid}/clientes`, ref =>
-          ref.orderBy('done', 'asc').orderBy('title', 'asc')
-        );
+        this.setCollection(`/users/${user.uid}/clientes`, ref => ref.orderBy('nome', 'asc'));
         return;
       }
       this.setCollection(null);

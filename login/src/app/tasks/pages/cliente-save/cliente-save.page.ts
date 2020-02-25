@@ -31,23 +31,31 @@ export class ClienteSavePage implements OnInit {
   init(): void {
     const clienteId = this.route.snapshot.paramMap.get('id');
     if (!clienteId) {
-      this.pageTitle = 'Create Task'; // se nao houver e para criar
+      this.pageTitle = 'Cadastrando cliente'; // se nao houver e para criar
       return;
     }
     this.clienteId = clienteId;
-    this.pageTitle = 'Edit Task';
+    this.pageTitle = 'Editando Cliente';
     this.clienteService
       .get(clienteId)
       .pipe(take(1))
-      .subscribe(({ nome, done }) => {
+      .subscribe(({ nome, done, celular, endereco, sexo, idade }) => {
         this.clienteForm.get('nome').setValue(nome);
+        this.clienteForm.get('celular').setValue(celular);
+        this.clienteForm.get('endereco').setValue(endereco);
+        this.clienteForm.get('sexo').setValue(sexo);
+        this.clienteForm.get('idade').setValue(idade);
         this.clienteForm.get('done').setValue(done);
       });
   }
 
   private createForm(): void {
     this.clienteForm = this.fb.group({
-      title: ['', [Validators.required, Validators.minLength(3)]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      celular: ['', [Validators.required, Validators.minLength(9)]],
+      endereco: ['', [ Validators.minLength(5)]],
+      sexo: ['', [Validators.required, Validators.minLength(1)]],
+      idade: ['', [ Validators.minLength(2)]],
       done: [false]
     });
   }
@@ -57,15 +65,15 @@ export class ClienteSavePage implements OnInit {
       message: 'Saving...'
     });
     try {
-      const task = !this.clienteId
+      const cliente = !this.clienteId
         ? await this.clienteService.create(this.clienteForm.value)
         : await this.clienteService.update({
             id: this.clienteId,
             ...this.clienteForm.value
           });
-      this.navCtrl.navigateBack('/tasks');
+      this.navCtrl.navigateBack('/tasks/clientes');
     } catch (error) {
-      console.log('Error saving Task: ', error);
+      console.log('Error saving Clientes: ', error);
       await this.overlayService.toast({
         message: error.message
       });

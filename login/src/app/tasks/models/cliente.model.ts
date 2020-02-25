@@ -1,6 +1,6 @@
 export interface Cliente {
   id: string;
-  nome: boolean;
+  nome: string;
   celular: string;
   endereco: string;
   idade: string;
