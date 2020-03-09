@@ -1,6 +1,8 @@
 <ion-item-sliding #sliding>
   <ion-item (click)="update.emit(cliente)">
     {{ cliente.nome }}
+    {{ cliente.idade }}
+    {{ cliente.sexo }}
   </ion-item>
   <ion-item-options side="start">
     <ion-item-option color="danger" (click)="delete.emit(cliente); sliding.close()">

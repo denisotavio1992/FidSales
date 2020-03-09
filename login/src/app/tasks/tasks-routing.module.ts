@@ -58,7 +58,22 @@ const routes: Routes = [
       {
         path: 'criar-cliente',
         loadChildren: './pages/cliente-save/cliente-save.module#ClienteSavePageModule'
-      }
+      },
+      {
+        path: 'produtos',
+        loadChildren: './pages/produto-list/produto-list.module#ProdutoListPageModule'
+      },
+      { path: 'historico', loadChildren: './pages/historico/historico.module#HistoricoPageModule' },
+      {
+        path: 'estatisticas',
+        loadChildren: './pages/estatisticas/estatisticas.module#EstatisticasPageModule'
+      },
+      {
+        path: 'configuracoes',
+        loadChildren: './pages/configuracoes/configuracoes.module#ConfiguracoesPageModule'
+      },
+      { path: 'vender', loadChildren: './pages/vender/vender.module#VenderPageModule' },
+      { path: 'ajuda', loadChildren: './pages/ajuda/ajuda.module#AjudaPageModule' }
     ]
   }
 ];

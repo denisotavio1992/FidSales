@@ -14,7 +14,8 @@ import { ActivatedRoute } from '@angular/router';
 export class LoginPage implements OnInit {
   authForm: FormGroup;
   authProvider = AuthProvider;
-  configs = { // aqui faz as alternmancias do texto
+  configs = {
+    // aqui faz as alternmancias do texto
     isSignIn: true,
     action: 'Login',
     actionChange: 'Criar uma conta'
@@ -69,7 +70,9 @@ export class LoginPage implements OnInit {
         provider
       });
       // apos o login a pagina que o usuario sera redirecionado
-      this.navCtrl.navigateForward(this.route.snapshot.queryParamMap.get('redirect') || '/tasks/eventos');
+      this.navCtrl.navigateForward(
+        this.route.snapshot.queryParamMap.get('redirect') || '/tasks/clientes'
+      );
     } catch (e) {
       console.log('Auth error: ', e); //
       await this.overlayService.toast({

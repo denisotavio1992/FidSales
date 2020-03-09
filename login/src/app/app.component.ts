@@ -28,22 +28,22 @@ export class AppComponent {
       // indica os caminhos a seguiir nos items do menu eventos-list
       // { url: '/tasks', direction: 'back', icon: 'checkmark', text: 'Tasks' },
       // { url: '/tasks/create', direction: 'forward', icon: 'add', text: 'New Task' },
-      { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
-      { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
-      { url: '/tasks/banners', direction: 'back', icon: 'checkmark', text: 'Banners' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'add', text: 'Novo Banner' },
+      // { url: '/tasks/eventos', direction: 'back', icon: 'checkmark', text: 'Eventos' },
+      // { url: '/tasks/criar-evento', direction: 'forward', icon: 'add', text: 'Novo Evento' },
+      // { url: '/tasks/banners', direction: 'back', icon: 'checkmark', text: 'Banners' },
+      // { url: '/tasks/criar-banner', direction: 'forward', icon: 'add', text: 'Novo Banner' },
       // tg
-      { url: '/tasks/eventos', direction: 'back', icon: 'checkbox', text: 'Vender' },
-      { url: '/tasks/criar-evento', direction: 'forward', icon: 'grid', text: 'Produtos' },
+      { url: '/tasks/vender', direction: 'back', icon: 'checkbox', text: 'Vender' },
+      { url: '/tasks/produtos', direction: 'forward', icon: 'grid', text: 'Produtos' },
       { url: '/tasks/clientes', direction: 'back', icon: 'person', text: 'Clientes' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'logo-usd', text: 'Histórico' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'stats', text: 'Estatísticas' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'cog', text: 'Configurações' },
-      { url: '/tasks/criar-banner', direction: 'forward', icon: 'happy', text: 'Ajuda' }
+      { url: '/tasks/historico', direction: 'forward', icon: 'logo-usd', text: 'Histórico' },
+      { url: '/tasks/estatisticas', direction: 'forward', icon: 'stats', text: 'Estatísticas' },
+      { url: '/tasks/configuracoes', direction: 'forward', icon: 'cog', text: 'Configurações' },
+      { url: '/tasks/ajuda', direction: 'forward', icon: 'happy', text: 'Ajuda' }
     ];
 
     this.authService.authState$.subscribe(user => (this.user = user));
-      // o codigo acima lista o usuario ue esta logado mostrando seu nome no menu
+    // o codigo acima lista o usuario ue esta logado mostrando seu nome no menu
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

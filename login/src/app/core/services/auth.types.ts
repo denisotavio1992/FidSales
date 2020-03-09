@@ -1,8 +1,6 @@
 export enum AuthProvider {
   Email,
   Facebook,
-  Google,
-  Instagram
 }
 
 export interface User {
