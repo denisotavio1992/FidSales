@@ -73,7 +73,15 @@ const routes: Routes = [
         loadChildren: './pages/configuracoes/configuracoes.module#ConfiguracoesPageModule'
       },
       { path: 'vender', loadChildren: './pages/vender/vender.module#VenderPageModule' },
-      { path: 'ajuda', loadChildren: './pages/ajuda/ajuda.module#AjudaPageModule' }
+      { path: 'ajuda', loadChildren: './pages/ajuda/ajuda.module#AjudaPageModule' },
+      {
+        path: 'criar-produto',
+        loadChildren: './pages/produto-save/produto-save.module#ProdutoSavePageModule'
+      },
+      {
+        path: 'produtos/edit/:id',
+        loadChildren: './pages/produto-save/produto-save.module#ProdutoSavePageModule'
+      }
     ]
   }
 ];

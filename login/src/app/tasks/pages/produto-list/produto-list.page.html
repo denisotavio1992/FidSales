@@ -1,9 +1,45 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>produto-list</ion-title>
+  <ion-toolbar color="primary">
+    <!-- Aqui esta o menu dinamico que pode ser replicado em varias paginas da aplicação -->
+    <app-menu-toggle
+      slot="start"
+      menu="main-menu"
+    ></app-menu-toggle>
+    <ion-title>Produtos Lista</ion-title>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
+  <ion-list *ngIf="produtos$ | async as produtos">
+    <ng-container *ngIf="produtos.length > 0; else noProdutos">
+      <app-produto-item
+        *ngFor="let produto of produtos"
+        [produto]="produto"
+        (update)="onUpdate($event)"
+        (delete)="onDelete($event)"
+        (done)="onDone($event)"
+      >
+      </app-produto-item>
+    </ng-container>
+    <ng-template #noProdutos>
+      <ion-item lines="none">Sem Produtos...</ion-item>
+    </ng-template>
+  </ion-list>
 
+  <ion-fab
+    vertical="bottom"
+    horizontal="end"
+    slot="fixed"
+  >
+    <ion-fab-button
+      routerLink="/tasks/criar-produto"
+      routerDirection="forward"
+    >
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

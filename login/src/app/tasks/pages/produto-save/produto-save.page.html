@@ -1,0 +1,139 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/tasks/produtos"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ pageTitle }}</ion-title>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <form
+    [formGroup]="produtoForm"
+    (submit)="onSubmit()"
+  >
+    <!-- Nome -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Nome"
+        autofocus="true"
+        inputmode="text"
+        formControlName="nome"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- precoCusto -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="number"
+        placeholder="Preço Custo"
+        autofocus="true"
+        inputmode="number"
+        formControlName="precoCusto"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- precoVenda -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="number"
+        placeholder="Preço Venda"
+        autofocus="true"
+        inputmode="number"
+        formControlName="precoVenda"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- Categoria -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Categoria"
+        autofocus="true"
+        inputmode="text"
+        formControlName="categoria"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- Descricao -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="text"
+        placeholder="Descrição"
+        autofocus="true"
+        inputmode="text"
+        formControlName="descricao"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- minimo -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="number"
+        placeholder="Estoque minimo"
+        autofocus="true"
+        inputmode="number"
+        formControlName="estoqueMinimo"
+      >
+      </ion-input>
+    </ion-item>
+    <!-- quantidade -->
+    <ion-item>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
+      <ion-input
+        type="number"
+        placeholder="Quantidade inicial"
+        autofocus="true"
+        inputmode="number"
+        formControlName="quantidade"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]="produtoForm.invalid"
+    >
+      Save
+    </ion-button>
+  </form>
+</ion-content>

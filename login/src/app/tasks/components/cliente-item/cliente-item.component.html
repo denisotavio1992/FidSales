@@ -1,15 +1,20 @@
 <ion-item-sliding #sliding>
-  <ion-item (click)="update.emit(cliente)">
-    {{ cliente.nome }}
-    {{ cliente.idade }}
-    {{ cliente.sexo }}
-  </ion-item>
+  <ion-item (click)="update.emit(cliente)">{{ cliente.nome }}</ion-item>
   <ion-item-options side="start">
-    <ion-item-option color="danger" (click)="delete.emit(cliente); sliding.close()">
-      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    <ion-item-option
+      color="danger"
+      (click)="delete.emit(cliente); sliding.close()"
+    >
+      <ion-icon
+        slot="icon-only"
+        name="trash"
+      ></ion-icon>
     </ion-item-option>
     <ion-item-option (click)="update.emit(cliente); sliding.close()">
-      <ion-icon slot="icon-only" name="create"></ion-icon>
+      <ion-icon
+        slot="icon-only"
+        name="create"
+      ></ion-icon>
     </ion-item-option>
   </ion-item-options>
 </ion-item-sliding>

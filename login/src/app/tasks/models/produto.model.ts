@@ -1,9 +1,11 @@
-export interface Cliente {
+export interface Produto {
   id: string;
   nome: string;
-  celular: string;
-  endereco: string;
-  idade: string;
-  sexo: string;
+  precoCusto: number;
+  precoVenda: number;
+  categoria: string;
+  descricao: string;
+  quantidade: number;
+  estoqueMinimo: number;
   done: boolean;
 }
