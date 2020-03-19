@@ -1,0 +1,13 @@
+<ion-item-sliding #sliding>
+  <ion-item (click)="update.emit(categoria)">
+    {{ categoria.nomeCategoria }}
+  </ion-item>
+  <ion-item-options side="start">
+    <ion-item-option color="danger" (click)="delete.emit(categoria); sliding.close()">
+      <ion-icon slot="icon-only" name="trash"></ion-icon>
+    </ion-item-option>
+    <ion-item-option (click)="update.emit(categoria); sliding.close()">
+      <ion-icon slot="icon-only" name="create"></ion-icon>
+    </ion-item-option>
+  </ion-item-options>
+</ion-item-sliding>

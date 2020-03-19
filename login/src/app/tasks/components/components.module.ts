@@ -6,6 +6,7 @@ import { EventoItemComponent } from './evento-item/evento-item.component';
 import { BannerItemComponent } from './banner-item/banner-item.component';
 import { ClienteItemComponent } from './cliente-item/cliente-item.component';
 import { ProdutoItemComponent } from './produto-item/produto-item.component';
+import { CategoriaItemComponent } from './categoria-item/categoria-item.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { ProdutoItemComponent } from './produto-item/produto-item.component';
     TaskItemComponent,
     EventoItemComponent,
     BannerItemComponent,
-    ClienteItemComponent
+    ClienteItemComponent,
+    CategoriaItemComponent
   ],
   imports: [SharedModule],
   exports: [
@@ -21,7 +23,8 @@ import { ProdutoItemComponent } from './produto-item/produto-item.component';
     TaskItemComponent,
     EventoItemComponent,
     BannerItemComponent,
-    ClienteItemComponent
+    ClienteItemComponent,
+    CategoriaItemComponent
   ]
 })
 export class ComponentsModule {}

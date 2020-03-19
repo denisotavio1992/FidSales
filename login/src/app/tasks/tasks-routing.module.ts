@@ -83,7 +83,10 @@ const routes: Routes = [
         loadChildren: './pages/produto-save/produto-save.module#ProdutoSavePageModule'
       }
     ]
-  }
+  },  { path: 'categoria-item', loadChildren: './pages/categoria-item/categoria-item.module#CategoriaItemPageModule' },
+  { path: 'categoria-save', loadChildren: './pages/categoria-save/categoria-save.module#CategoriaSavePageModule' },
+  { path: 'categoria-list', loadChildren: './pages/categoria-list/categoria-list.module#CategoriaListPageModule' }
+
 ];
 
 @NgModule({
