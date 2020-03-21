@@ -35,6 +35,7 @@ export class AppComponent {
       // tg
       { url: '/tasks/vender', direction: 'back', icon: 'checkbox', text: 'Vender' },
       { url: '/tasks/produtos', direction: 'forward', icon: 'grid', text: 'Produtos' },
+      { url: '/tasks/categorias', direction: 'forward', icon: 'grid', text: 'Categorias' },
       { url: '/tasks/clientes', direction: 'back', icon: 'person', text: 'Clientes' },
       { url: '/tasks/historico', direction: 'forward', icon: 'logo-usd', text: 'Histórico' },
       { url: '/tasks/estatisticas', direction: 'forward', icon: 'stats', text: 'Estatísticas' },
