@@ -60,16 +60,13 @@
     </ion-item>
     <!--sexo-->
     <ion-item>
-      <ion-icon name="female" slot="start" color="primary"></ion-icon>
-      <ion-input
-        type="text"
-        placeholder="Sexo"
-        autofocus="true"
-        inputmode="text"
-        formControlName="sexo"
-      >
-      </ion-input>
+      <ion-label>Gender</ion-label>
+      <ion-select placeholder="Select One" formControlName="sexo">
+        <ion-select-option value="f">Female</ion-select-option>
+        <ion-select-option value="m">Male</ion-select-option>
+      </ion-select>
     </ion-item>
+
     <ion-button expand="full" type="submit" [disabled]="clienteForm.invalid">
       Save
     </ion-button>
