@@ -28,44 +28,25 @@
     </ng-template>
   </ion-list>
 
-
+</ion-content>
+<ion-content>
   <ion-tabs>
-    <ion-tab-bar slot="top">
-      <ion-tab-button
-        routerLink="/tasks/criar-produto"
-        tab="schedule"
-      >
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button type="submit" (click)="changeAuthAction()">
         <ion-label>Celular</ion-label>
       </ion-tab-button>
-
-
-      <ion-tab-button tab="speakers">
+      <ion-tab-button>
         <ion-label>Roupa</ion-label>
       </ion-tab-button>
-
-
-      <ion-tab-button tab="map">
+      <ion-tab-button>
         <ion-label>Tenis</ion-label>
       </ion-tab-button>
-
-
-      <ion-tab-button tab="about">
+      <ion-tab-button>
         <ion-label>Perfume</ion-label>
+      </ion-tab-button>
+      <ion-tab-button>
+        <ion-label>Maquiagem</ion-label>
       </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
-
-
-  <ion-fab
-    vertical="bottom"
-    horizontal="end"
-    slot="fixed"
-  >
-    <ion-fab-button
-      routerLink="/tasks/criar-produto"
-      routerDirection="forward"
-    >
-      <ion-icon name="add"></ion-icon>
-    </ion-fab-button>
-  </ion-fab>
 </ion-content>

@@ -4,14 +4,26 @@
       <ion-back-button defaultHref="/tasks/clientes"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ pageTitle }}</ion-title>
-    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content padding>
-  <form [formGroup]="clienteForm" (submit)="onSubmit()">
+  <form
+    [formGroup]="clienteForm"
+    (submit)="onSubmit()"
+  >
     <ion-item>
-      <ion-icon name="person" slot="start" color="primary"></ion-icon>
+      <ion-icon
+        name="person"
+        slot="start"
+        color="primary"
+      ></ion-icon>
       <ion-input
         type="text"
         placeholder="Nome"
@@ -21,9 +33,13 @@
       >
       </ion-input>
     </ion-item>
-    <!--Celular-->
+    <!-- Celular -->
     <ion-item>
-      <ion-icon name="logo-whatsapp" slot="start" color="primary"></ion-icon>
+      <ion-icon
+        name="logo-whatsapp"
+        slot="start"
+        color="primary"
+      ></ion-icon>
       <ion-input
         type="text"
         placeholder="Celular"
@@ -34,9 +50,15 @@
       </ion-input>
     </ion-item>
 
-    <!--endereco-->
+
+
+    <!-- endereco -->
     <ion-item>
-      <ion-icon name="home" slot="start" color="primary"></ion-icon>
+      <ion-icon
+        name="home"
+        slot="start"
+        color="primary"
+      ></ion-icon>
       <ion-input
         type="text"
         placeholder="Endereço"
@@ -46,9 +68,13 @@
       >
       </ion-input>
     </ion-item>
-    <!--Idade-->
+    <!-- Idade -->
     <ion-item>
-      <ion-icon name="walk" slot="start" color="primary"></ion-icon>
+      <ion-icon
+        name="walk"
+        slot="start"
+        color="primary"
+      ></ion-icon>
       <ion-input
         type="text"
         placeholder="Idade"
@@ -58,16 +84,25 @@
       >
       </ion-input>
     </ion-item>
-    <!--sexo-->
+    <!-- sexo -->
     <ion-item>
-      <ion-label>Gender</ion-label>
-      <ion-select placeholder="Select One" formControlName="sexo">
-        <ion-select-option value="f">Female</ion-select-option>
-        <ion-select-option value="m">Male</ion-select-option>
+      <ion-label>Sexo</ion-label>
+      <ion-select
+        placeholder="sexo"
+        formControlName="sexo"
+      >
+        <ion-select-option value="f">Feminino</ion-select-option>
+        <ion-select-option value="m">Masculino</ion-select-option>
       </ion-select>
     </ion-item>
 
-    <ion-button expand="full" type="submit" [disabled]="clienteForm.invalid">
+
+
+    <ion-button
+      expand="full"
+      type="submit"
+      [disabled]="clienteForm.invalid"
+    >
       Save
     </ion-button>
   </form>
