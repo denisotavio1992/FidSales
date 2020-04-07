@@ -15,6 +15,9 @@
 
 
 
+
+
+
 <ion-content padding>
   <form
     [formGroup]="produtoForm"
@@ -76,14 +79,19 @@
         color="primary"
       ></ion-icon>
       <ion-select
-        placeholder="sexo"
+        placeholder="Categoria"
         formControlName="categoria"
       >
-        <ion-select-option value="celular">Celular</ion-select-option>
+        <ion-select-option value="eletronico">Eletronico</ion-select-option>
         <ion-select-option value="maquiagem">Maquiagen</ion-select-option>
         <ion-select-option value="perfume">Perfume</ion-select-option>
+        <ion-select-option value="roupa">Roupa</ion-select-option>
+        <ion-select-option value="tenis">tenis</ion-select-option>
       </ion-select>
     </ion-item>
+
+
+
 
 
     <!-- minimo -->
