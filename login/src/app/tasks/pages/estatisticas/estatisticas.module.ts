@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { EstatisticasPage } from './estatisticas.page';
+import { SharedModule } from 'src/app/shared/shared.module';
+import { ComponentsModule } from '../../components/components.module';
 
 const routes: Routes = [
   {
@@ -15,12 +17,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    RouterModule.forChild(routes)
-  ],
+  imports: [SharedModule, ComponentsModule, RouterModule.forChild(routes)],
   declarations: [EstatisticasPage]
 })
 export class EstatisticasPageModule {}

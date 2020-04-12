@@ -1,40 +1,98 @@
 <ion-header>
   <ion-toolbar color="primary">
     <!-- Aqui esta o menu dinamico que pode ser replicado em varias paginas da aplicação -->
-    <app-menu-toggle slot="start" menu="main-menu"></app-menu-toggle>
+    <app-menu-toggle
+      slot="start"
+      menu="main-menu"
+    ></app-menu-toggle>
     <ion-title>Vender</ion-title>
-    <app-logout-button slot="end" menu="main-menu"></app-logout-button>
+    <app-logout-button
+      slot="end"
+      menu="main-menu"
+    ></app-logout-button>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-tabs>
-    <ion-tab-bar slot="top">
-      <ion-tab-button type="submit" (click)="ngOnInit()">
-        <ion-icon name="albums"></ion-icon>
-      </ion-tab-button>
-      <ion-tab-button type="submit" (click)="catCeular()">
-        <ion-label>Celular</ion-label>
-      </ion-tab-button>
-      <ion-tab-button type="submit" (click)="catRoupa()">
-        <ion-label>Roupa</ion-label>
-      </ion-tab-button>
-      <ion-tab-button type="submit" (click)="catTenis()">
-        <ion-label>Tenis</ion-label>
-      </ion-tab-button>
-      <ion-tab-button type="submit" (click)="catPerfume()">
-        <ion-label>Perfume</ion-label>
-      </ion-tab-button>
-      <ion-tab-button type="submit" (click)="catMaquiagem()">
-        <ion-label>Maquiagem</ion-label>
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
-</ion-content>
+
+
+
+
+
+
+
+
 <ion-content>
+  <ion-searchbar placeholder="Digite um produto"></ion-searchbar>
+  <ion-button
+    type="submit"
+    (click)="ngOnInit()"
+  >
+    Todos
+  </ion-button>
+  <ion-button
+    type="submit"
+    (click)="catCeular()"
+  >
+    Eletros
+  </ion-button>
+  <ion-button
+    type="submit"
+    (click)="catMaquiagem()"
+  >
+    Maqs
+  </ion-button>
+  <ion-button
+    type="submit"
+    (click)="catPerfume()"
+  >
+    Perfumes
+  </ion-button>
+  <ion-button
+    type="submit"
+    (click)="catRoupa()"
+  >
+    Roupas
+  </ion-button>
+  <ion-button
+    type="submit"
+    (click)="catTenis()"
+  >
+    Tenis
+  </ion-button>
+
+
+
+
+
+
+
+
+
+
+  <ion-button
+    expand="block"
+    size="large"
+    id="btn-salvar"
+  >
+    
+  </ion-button>
+
+
+
+
+
+
+
+
+
   <ion-list *ngIf="produtos$ | async as produtos">
     <ng-container *ngIf="produtos.length > 0; else noProdutos">
-      <app-produto-item *ngFor="let produto of produtos" [produto]="produto" (click)="addCar(produto.precoVenda)"> </app-produto-item>
+      <app-produto-item
+        *ngFor="let produto of produtos"
+        [produto]="produto"
+        (click)="addCar(produto)"
+      >
+      </app-produto-item>
     </ng-container>
     <ng-template #noProdutos>
       <ion-item lines="none">Sem Produtos...</ion-item>

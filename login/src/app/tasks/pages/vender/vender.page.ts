@@ -11,6 +11,8 @@ import { RoupaCategoriaService } from '../../services/roupa-categoria.service';
 import { TenisCategoriaService } from '../../services/tenis-categoria.service';
 import { PerfumeCategoriaService } from '../../services/perfume-categoria.service';
 import { MaquiagemCategoriaService } from '../../services/maquiagem-categoria.service';
+import { BuscarService } from '../../services/buscar.service';
+import { parse } from 'querystring';
 
 @Component({
   selector: 'app-vender',
@@ -21,10 +23,21 @@ export class VenderPage implements OnInit {
   produtos$: Observable<Produto[]>;
   buscarForm: FormGroup;
   venderForm: FormGroup;
+  contador: number;
+  totalItem: number;
+
+  configs = {
+    // aqui faz as alternmancias do texto
+    carItem: true,
+    totalItem: Number,
+    xValor: Number
+  };
+
   constructor(
     private navCtrl: NavController,
     private overlayService: OverlayService,
     private produtosService: ProdutosService,
+    private buscarService: BuscarService,
     private celularCategoria: CelularCategoriaService,
     private roupaCategoria: RoupaCategoriaService,
     private tenisCategoria: TenisCategoriaService,
@@ -33,20 +46,20 @@ export class VenderPage implements OnInit {
   ) {}
 
   async ngOnInit(): Promise<void> {
+    this.contador = 0;
+    this.totalItem = 0;
     const loading = await this.overlayService.loading();
     this.produtos$ = this.produtosService.getAll();
     this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
   }
 
   async catCeular(): Promise<void> {
-    console.log('teste');
+    console.log('eletronico');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.celularCategoria.getAll();
     this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
   }
-  async addCar(preco: Produto): Promise<void> {
-    console.log('produto.');
-  }
+
   async catRoupa(): Promise<void> {
     console.log('teste');
     const loading = await this.overlayService.loading();
@@ -69,9 +82,30 @@ export class VenderPage implements OnInit {
   }
 
   async catMaquiagem(): Promise<void> {
-    console.log('teste');
+    console.log('maquiagem');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.maquiagemCategoria.getAll();
     this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+  }
+
+  async addCar(produto: Produto): Promise<void> {
+    // console.log(produto.precoVenda);
+
+    this.contador = this.contador + 1;
+    this.totalItem = this.totalItem + produto.precoVenda;
+    // console.log(this.contador);
+    // console.log('Carrinho ', this.totalItem);
+    this.changeAuthAction(this.contador, this.totalItem);
+  }
+
+  changeAuthAction(totalItem: number, xValor: number): void {
+    console.log('Itens ', totalItem, 'Total', xValor);
+    this.configs.totalItem(totalItem);
+    this.configs.xValor(xValor);
+  }
+
+  btnCarrinho(): void {
+    // tslint:disable-next-line: no-unused-expression
+    this.configs.totalItem;
   }
 }

@@ -21,4 +21,14 @@ export class ProdutosService extends Firestore<Produto> {
       this.setCollection(null);
     });
   }
+
+  private buscar(queryText: string): void {
+    this.authService.authState$.subscribe(user => {
+      if (user) {
+        this.setCollection(`/users/${user.uid}/produtos`, ref => ref.where('nome', '==', queryText));
+        return;
+      }
+      this.setCollection(null);
+    });
+  }
 }
