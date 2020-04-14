@@ -21,6 +21,13 @@
 
 
 
+
+
+
+
+
+
+
 <ion-content>
   <ion-searchbar placeholder="Digite um produto"></ion-searchbar>
   <ion-button
@@ -64,18 +71,25 @@
 
 
 
-
-
-
-
-
   <ion-button
+    id="demo"
     expand="block"
     size="large"
     id="btn-salvar"
   >
-    
+    <ion-icon
+      slot="start"
+      name="cart"
+    ></ion-icon>
+    Itens {{contador}} Total = {{totalItem}} R$
   </ion-button>
+
+
+
+
+
+
+
 
 
 

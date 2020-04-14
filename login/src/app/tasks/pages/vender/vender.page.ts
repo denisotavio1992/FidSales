@@ -17,21 +17,9 @@ import { parse } from 'querystring';
 @Component({
   selector: 'app-vender',
   templateUrl: './vender.page.html',
-  styleUrls: ['./vender.page.scss']
+  styleUrls: ['./vender.page.scss'],
 })
 export class VenderPage implements OnInit {
-  produtos$: Observable<Produto[]>;
-  buscarForm: FormGroup;
-  venderForm: FormGroup;
-  contador: number;
-  totalItem: number;
-
-  configs = {
-    // aqui faz as alternmancias do texto
-    carItem: true,
-    totalItem: Number,
-    xValor: Number
-  };
 
   constructor(
     private navCtrl: NavController,
@@ -44,53 +32,59 @@ export class VenderPage implements OnInit {
     private perfumeCategoria: PerfumeCategoriaService,
     private maquiagemCategoria: MaquiagemCategoriaService
   ) {}
+  produtos$: Observable<Produto[]>;
+  produtoAux$: Observable<Produto[]>;
+  buscarForm: FormGroup;
+  venderForm: FormGroup;
+  contador: number;
+  totalItem: number;
+    // console.log(produto.precoVenda);
+    private prdotuto: Produto;
 
   async ngOnInit(): Promise<void> {
     this.contador = 0;
     this.totalItem = 0;
     const loading = await this.overlayService.loading();
     this.produtos$ = this.produtosService.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async catCeular(): Promise<void> {
     console.log('eletronico');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.celularCategoria.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async catRoupa(): Promise<void> {
     console.log('teste');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.roupaCategoria.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async catTenis(): Promise<void> {
     console.log('teste');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.tenisCategoria.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async catPerfume(): Promise<void> {
     console.log('teste');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.perfumeCategoria.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async catMaquiagem(): Promise<void> {
     console.log('maquiagem');
     const loading = await this.overlayService.loading();
     this.produtos$ = this.maquiagemCategoria.getAll();
-    this.produtos$.pipe(take(1)).subscribe(produtos => loading.dismiss());
+    this.produtos$.pipe(take(1)).subscribe((produtos) => loading.dismiss());
   }
 
   async addCar(produto: Produto): Promise<void> {
-    // console.log(produto.precoVenda);
-
     this.contador = this.contador + 1;
     this.totalItem = this.totalItem + produto.precoVenda;
     // console.log(this.contador);
@@ -100,12 +94,8 @@ export class VenderPage implements OnInit {
 
   changeAuthAction(totalItem: number, xValor: number): void {
     console.log('Itens ', totalItem, 'Total', xValor);
-    this.configs.totalItem(totalItem);
-    this.configs.xValor(xValor);
+    // this.carrinhoAux.totalItem(totalItem);
+    // this.carrinhoAux.xValor(xValor);
   }
 
-  btnCarrinho(): void {
-    // tslint:disable-next-line: no-unused-expression
-    this.configs.totalItem;
-  }
 }
